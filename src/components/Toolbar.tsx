@@ -1,15 +1,15 @@
-import dayjs, { Dayjs } from "dayjs";
-import React, { useState } from "react";
+import dayjs from "dayjs";
+import { useAtom } from "jotai";
+import React from "react";
 
-import useSchedule from "../hooks/useSchedule";
+import { selectedDay, Ship } from "../state/Atoms";
 
-const Toolbar = () => {
-  const { data: schedule } = useSchedule();
+interface ToolbarProps {
+  schedule: Ship[];
+}
 
-  const [selectedDate, setSelectedDate] = useState<Dayjs>(dayjs());
-
-  const getTodaysShip = () =>
-    schedule?.filter((ship) => ship.date === selectedDate.format("DD.MM.YYYY"));
+const Toolbar = ({}: ToolbarProps) => {
+  const [selectedDate, setSelectedDate] = useAtom(selectedDay);
 
   const addDay = () => {
     setSelectedDate((prevState) => prevState.add(1, "day"));
@@ -19,7 +19,7 @@ const Toolbar = () => {
     setSelectedDate((prevState) => prevState.subtract(1, "day"));
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value) {
       setSelectedDate(dayjs(e.target.value));
     }
@@ -29,7 +29,7 @@ const Toolbar = () => {
     <div className="flex justify-evenly text-dirt">
       <button onClick={() => removeDay()}>Go back</button>
       <h2 className="text-2xl">{selectedDate.format("DD.MM.YYYY")}</h2>
-      <input type="date" id="calendar" onChange={(e) => handleChange(e)} />
+      <input type="date" id="calendar" onChange={(e) => handleDateChange(e)} />
       <button onClick={() => addDay()}>go forward</button>
     </div>
   );

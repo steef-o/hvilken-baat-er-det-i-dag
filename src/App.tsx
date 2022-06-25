@@ -1,23 +1,28 @@
-import { QueryClient, QueryClientProvider } from "react-query";
+import { useAtom } from "jotai";
 
-import Schedule from "./components/Schedule";
+import ShipList from "./components/ShipList";
+import Toolbar from "./components/Toolbar";
+import { schedule } from "./state/Atoms";
 
-import Toolbar from "~/components/Toolbar";
+const App = () => {
+  const [data] = useAtom(schedule);
 
-const queryClient = new QueryClient();
+  console.log(data);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+  if (status === "error") return <div>error...</div>;
+  if (status === "loading") return <div>Loading...</div>;
+
+  return (
     <div className="h-screen bg-base">
       <header className="h-16 items-center bg-midnight-blue text-center">
         <h1 className="pt-4 align-middle text-xl uppercase text-dirt">Hvilken Båt er det i dag</h1>
       </header>
       <main className="mx-auto max-w-project">
-        <Toolbar />
-        <Schedule />
+        <Toolbar schedule={data} />
+        <ShipList schedule={data} />
       </main>
     </div>
-  </QueryClientProvider>
-);
+  );
+};
 
 export default App;
