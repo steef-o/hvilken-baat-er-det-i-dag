@@ -2,13 +2,9 @@ import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import React from "react";
 
-import { selectedDay, Ship } from "../state/Atoms";
+import { selectedDay } from "~/state/Atoms";
 
-interface ToolbarProps {
-  schedule: Ship[];
-}
-
-const Toolbar = ({}: ToolbarProps) => {
+const Toolbar = () => {
   const [selectedDate, setSelectedDate] = useAtom(selectedDay);
 
   const addDay = () => {
@@ -26,7 +22,7 @@ const Toolbar = ({}: ToolbarProps) => {
   };
 
   return (
-    <div className="flex justify-evenly text-dirt">
+    <div className="mt-8 flex justify-between text-dirt">
       <button onClick={() => removeDay()}>Go back</button>
       <h2 className="text-2xl">{selectedDate.format("DD.MM.YYYY")}</h2>
       <input type="date" id="calendar" onChange={(e) => handleDateChange(e)} />
