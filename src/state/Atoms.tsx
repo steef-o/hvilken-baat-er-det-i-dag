@@ -3,7 +3,7 @@ import { atom } from "jotai";
 import { atomWithQuery } from "jotai/query";
 import { z } from "zod";
 
-// Model: Ship
+// Zod Validator for Ship Model.
 const ship = z.object({
   day: z.string(),
   date: z.string(),
@@ -25,10 +25,10 @@ const ship = z.object({
 // Ship[]
 const list = z.array(ship);
 
-// Type of Ship
+// Exportable type of Ship for use in application.
 export type Ship = z.infer<typeof ship>;
 
-// Fetch ship schedule from Github gist and parse the result with Zod.
+// Fetch ship schedule with React Query from GitHub gist and parse the result with Zod.
 export const schedule = atomWithQuery(() => ({
   queryKey: ["schedule"],
   queryFn: async () => {
@@ -50,14 +50,14 @@ export const selectedShipList = atom((get) =>
 // Get daily message based on selectedShipLength.
 export const dailyMessage = atom((get) => {
   const shipList = get(selectedShipList);
-  // Undefined: Return empty string
+  // Undefined: Return empty string.
   if (!shipList) return "";
 
   // Two Ships
   if (shipList.length === 2) {
     return <h2>I dag er det {<span className="font-bold">to</span>} båtere på besøk i Eidfjord</h2>;
   }
-  // One Ship
+  // One Ship.
   if (shipList.length === 1) {
     return (
       <h2>
@@ -66,7 +66,7 @@ export const dailyMessage = atom((get) => {
       </h2>
     );
   }
-  // No Ships
+  // No Ships.
   if (shipList.length === 0) {
     return <h2>Det er {<span className="font-bold">ingen</span>} båter i Eidfjord i dag</h2>;
   }
