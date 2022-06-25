@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import Schedule from "./components/Schedule";
 
+import Toolbar from "~/components/Toolbar";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -11,6 +13,7 @@ const App = () => (
         <h1 className="pt-4 align-middle text-xl uppercase text-dirt">Hvilken Båt er det i dag</h1>
       </header>
       <main className="mx-auto max-w-project">
+        <Toolbar />
         <Schedule />
       </main>
     </div>
