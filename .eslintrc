@@ -153,7 +153,7 @@
     ],
     "max-params": ["warn", { "max": 4 }],
     /*
-     * Doesn't know how to ignore JSX. Can use override, but would like to configure util functions (that can also
+     * Doesn't know how to ignore JSX. Can use override, but would like to configure utils functions (that can also
      * appear in .tsx files) and components separately.
      */
     "max-lines-per-function": "off",
