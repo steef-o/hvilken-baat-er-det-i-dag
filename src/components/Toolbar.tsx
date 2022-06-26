@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import { CaretLeft, CaretRight } from "phosphor-react";
+import React from "react";
 
 import { selectedDay } from "~/state/Atoms";
 
@@ -11,7 +12,7 @@ const Toolbar = () => {
     setSelectedDate((prevState) => prevState.add(1, "day"));
   };
 
-  const removeDay = () => {
+  const subtractDay = () => {
     setSelectedDate((prevState) => prevState.subtract(1, "day"));
   };
 
@@ -22,7 +23,7 @@ const Toolbar = () => {
   };
   return (
     <div className="mt-8 flex justify-between text-dirt">
-      <button onClick={() => removeDay()}>
+      <button onClick={() => subtractDay()}>
         <CaretLeft size="2rem" />
       </button>
       <input
