@@ -10,9 +10,9 @@ const ship = z.object({
   anchorTime: z.string(),
   shipName: z.string(),
   tonnage: z.number(),
-  length: z.number().or(z.string()),
-  depth: z.string().or(z.number()),
-  maxPassengers: z.number().or(z.string()),
+  length: z.number().nullable(),
+  depth: z.string().nullable(),
+  maxPassengers: z.number().nullable(),
   company: z.string(),
   agent: z.string(),
   fromPort: z.string(),
@@ -33,7 +33,7 @@ export const schedule = atomWithQuery(() => ({
   queryKey: ["schedule"],
   queryFn: async () => {
     const res = await fetch(
-      "https://gist.githubusercontent.com/steef-o/14cd114fef889782996416aff85c1820/raw/bf472120f7f60d26f6850c4b4016183efe2cc7d0/cruise2022.json",
+      "https://gist.githubusercontent.com/steef-o/14cd114fef889782996416aff85c1820/raw/5aca65e6a3f18d0fcdcfc7b7a9b97e5ee7009340/cruise2022.json",
     ).then((res) => res.json());
     return list.parse(res);
   },
