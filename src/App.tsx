@@ -7,11 +7,11 @@ import DailyMessage from "~/components/DailyMessage";
 
 const App = () => (
   <Suspense fallback={<div className="bg-base">Loading...</div>}>
-    <div className="h-screen bg-base">
+    <div className="bg-base pb-20">
       <header className="h-16 items-center bg-midnight-blue text-center">
         <h1 className="pt-4 align-middle text-xl uppercase text-dirt">Hvilken Båt er det i dag</h1>
       </header>
-      <main className="mx-auto max-w-project">
+      <main className="mx-auto mb-20 max-w-project">
         <Toolbar />
         <DailyMessage />
         {/* @TODO create animation for ship*/}
