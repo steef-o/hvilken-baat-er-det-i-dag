@@ -8,7 +8,7 @@ const ShipList = () => {
   const [shipList] = useAtom(selectedShipList);
 
   return (
-    <div className="relative mx-auto max-w-[768px] bg-dirt">
+    <div className="relative mx-auto max-w-[768px]">
       {shipList.map((ship, index) => (
         <ShipListItem
           key={`${ship.shipName}-${index}`}

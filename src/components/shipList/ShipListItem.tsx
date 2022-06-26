@@ -11,7 +11,7 @@ interface ShipListItemProps {
 }
 
 const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
-  <div className="shipListItem flex pb-4">
+  <div className="shipListItem my-10 flex bg-dirt pb-4">
     <div className="w-9/12 pt-1">
       <div className="flex">
         {anchoredShip ? (
@@ -20,8 +20,16 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
           <div className="mt-5 ml-12" />
         )}
         <div className="py-4 px-2">
-          <h2 className="text-2xl font-bold uppercase text-lollipop">{ship.shipName}</h2>
-          <h3 className="font-bold text-lollipop">{ship.date}</h3>
+          <h2
+            className={`text-2xl font-bold uppercase ${
+              anchoredShip ? "text-lollipop" : "text-vista-blue"
+            }`}
+          >
+            {ship.shipName}
+          </h2>
+          <h3 className={`font-bold ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>
+            {ship.date}
+          </h3>
         </div>
       </div>
       <div className="ml-10 grid grid-cols-2">
