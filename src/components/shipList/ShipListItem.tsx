@@ -12,15 +12,15 @@ interface ShipListItemProps {
 
 const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
   <div className="relative">
-    <div className="shipListItem my-10 flex bg-dirt pb-4">
+    <div className="shipListItem my-4 flex bg-dirt pb-4 md:my-10">
       <div className="w-full pt-1 md:w-9/12">
         <div className="flex">
           {anchoredShip ? (
             <Anchor size="2.5rem" className="mt-5 ml-2" />
           ) : (
-            <div className="mt-5 ml-12" />
+            <div className="mt-5 ml-2 md:ml-12" />
           )}
-          <div className="py-4 px-2">
+          <div className="py-4 px-4 md:px-2">
             <h2
               className={`text-2xl font-bold uppercase ${
                 anchoredShip ? "text-lollipop" : "text-vista-blue"
@@ -33,7 +33,7 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
             </h3>
           </div>
         </div>
-        <div className="ml-10 grid grid-cols-2">
+        <div className="ml-2 grid grid-cols-2 md:ml-10">
           <Field label="Fra" value={ship.fromPort} />
           <Field label="Til" value={ship.toPort} />
           <Field label="Nasjonalitet" value={ship.nationality} />

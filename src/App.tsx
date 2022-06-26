@@ -4,6 +4,7 @@ import Toolbar from "./components/Toolbar";
 import ShipList from "./components/shipList/ShipList";
 
 import DailyMessage from "~/components/DailyMessage";
+import Illustration from "~/components/Illustration";
 
 const App = () => (
   <Suspense fallback={<div className="bg-base">Loading...</div>}>
@@ -14,8 +15,7 @@ const App = () => (
       <main className="mx-auto mb-20 max-w-project px-4">
         <Toolbar />
         <DailyMessage />
-        {/* @TODO create animation for ship*/}
-        <div className="my-8 mx-auto h-60 max-w-[768px] bg-independence" />
+        <Illustration />
         <ShipList />
       </main>
     </div>
