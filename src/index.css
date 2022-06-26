@@ -6,3 +6,13 @@
 @tailwind utilities;
 
 
+.datePicker::-webkit-datetime-edit-fields-wrapper {
+}
+
+.datePicker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.datePicker{
+    @apply bg-base text-2xl
+}

@@ -15,7 +15,7 @@ const ShipListItem = ({ ship }: ShipListItemProps) => (
       <Field label="Fra" value={ship.fromPort} />
       <Field label="Til" value={ship.toPort} />
       <Field label="Nasjonalitet" value={ship.nationality} />
-      <Field label="Maks Passasjerer" value={ship.maxPassengers.toString()} />
+      <Field label="Maks Passasjerer" value={ship.maxPassengers?.toString() ?? "N/A"} />
       <Field label="Anker Tid" value={ship.anchorTime} />
       <Field label="Notater" value={ship.notes} />
     </div>
