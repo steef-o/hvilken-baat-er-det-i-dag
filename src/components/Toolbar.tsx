@@ -31,7 +31,7 @@ const Toolbar = () => {
         id="calendar"
         onChange={(e) => handleDateChange(e)}
         value={selectedDate.format("YYYY-MM-DD")}
-        className="datePicker"
+        className="datePicker bg-base text-2xl"
       />
       <button onClick={() => addDay()}>
         <CaretRight size="2rem" />

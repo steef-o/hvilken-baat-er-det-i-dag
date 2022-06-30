@@ -9,10 +9,6 @@
     filter: invert(1);
 }
 
-.datePicker{
-    @apply bg-base text-2xl
-}
-
 /*Side ticket hole top*/
 .shipListItem:before {
     content: "";

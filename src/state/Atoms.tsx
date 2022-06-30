@@ -67,7 +67,5 @@ export const dailyMessage = atom((get) => {
     );
   }
   // No Ships.
-  if (shipList.length === 0) {
-    return <h2>Det er {<span className="font-bold">ingen</span>} båter i Eidfjord i dag</h2>;
-  }
+  return <h2>Det er {<span className="font-bold">ingen</span>} båter i Eidfjord i dag</h2>;
 });

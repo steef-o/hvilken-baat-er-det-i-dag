@@ -1,8 +1,7 @@
 import { useAtom } from "jotai";
 import { Waves, Boat } from "phosphor-react";
 
-import Buoy from "../assets/img/buoy.svg";
-
+import Buoy from "~/assets/img/buoy.svg";
 import { selectedShipList } from "~/state/Atoms";
 
 const Illustration = () => {

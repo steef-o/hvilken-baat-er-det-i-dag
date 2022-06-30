@@ -1,7 +1,6 @@
 import { Anchor } from "phosphor-react";
 
-import Barcode from "../../assets/img/barcode.svg";
-
+import Barcode from "~/assets/img/barcode.svg";
 import Field from "~/components/shipList/Field";
 import { Ship } from "~/state/Atoms";
 

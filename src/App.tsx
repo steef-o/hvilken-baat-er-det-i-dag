@@ -1,10 +1,9 @@
 import { Suspense } from "react";
 
-import Toolbar from "./components/Toolbar";
-import ShipList from "./components/shipList/ShipList";
-
 import DailyMessage from "~/components/DailyMessage";
 import Illustration from "~/components/Illustration";
+import Toolbar from "~/components/Toolbar";
+import ShipList from "~/components/shipList/ShipList";
 
 const App = () => (
   <Suspense fallback={<div className="bg-base">Loading...</div>}>
