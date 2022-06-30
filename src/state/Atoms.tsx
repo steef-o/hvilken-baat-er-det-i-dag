@@ -33,7 +33,7 @@ export const schedule = atomWithQuery(() => ({
   queryKey: ["schedule"],
   queryFn: async () => {
     const res = await fetch(
-      "https://gist.githubusercontent.com/steef-o/14cd114fef889782996416aff85c1820/raw/5aca65e6a3f18d0fcdcfc7b7a9b97e5ee7009340/cruise2022.json",
+      "https://gist.githubusercontent.com/steef-o/14cd114fef889782996416aff85c1820/raw/0ffefa933aa1e77ef2ee8bd672016dcf57a65782/cruise2022.json",
     ).then((res) => res.json());
     return list.parse(res);
   },

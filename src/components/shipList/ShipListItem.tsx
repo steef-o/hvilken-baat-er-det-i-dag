@@ -17,6 +17,7 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
           {anchoredShip ? (
             <Anchor size="2.5rem" className="mt-5 ml-2" />
           ) : (
+            // Empty div - The same size as the Anchor icon. To fill the space.
             <div className="mt-5 ml-2 md:ml-12" />
           )}
           <div className="py-4 px-4 md:px-2">
@@ -35,10 +36,10 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
         <div className="ml-2 grid grid-cols-2 md:ml-10">
           <Field label="Fra" value={ship.fromPort} />
           <Field label="Til" value={ship.toPort} />
-          <Field label="Nasjonalitet" value={ship.nationality} />
-          <Field label="Maks Passasjerer" value={ship.maxPassengers?.toString() ?? "N/A"} />
-          <Field label="Anker Tid" value={ship.anchorTime} />
-          <Field label="Notater" value={ship.notes} />
+          <Field label="Nasjonalitet" value={ship.nationality || "---"} />
+          <Field label="Maks Passasjerer" value={ship.maxPassengers?.toString() ?? "---"} />
+          <Field label="Ankertid" value={ship.anchorTime} />
+          <Field label="Notater" value={ship.notes || "---"} />
         </div>
       </div>
       <div className="mt-[5.5rem] hidden w-60 md:block">
@@ -47,7 +48,7 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
             <Field label="Dag" value={ship.day} styles="capitalize px-0" />
             <Field label="Dato" value={ship.date} styles="px-0" />
           </div>
-          <img src={Barcode} alt="decorative barcode" />
+          <img src={Barcode} alt="Decorative barcode" />
         </div>
       </div>
     </div>
