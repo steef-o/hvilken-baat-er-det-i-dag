@@ -52,6 +52,8 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
         </div>
       </div>
     </div>
+    {/* Ticket tear line*/}
+    <hr className="absolute left-[52.2%] top-[50%] hidden w-[238px] w-5/12 rotate-[270deg] overflow-hidden border border-solid border-dashed opacity-50 md:block" />
   </div>
 );
 export default ShipListItem;

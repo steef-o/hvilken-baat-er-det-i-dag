@@ -25,7 +25,7 @@ const Illustration = () => {
         <Waves size="5rem" className="mx-[-0.75rem] hidden text-dirt md:block" />
         <Waves size="5rem" className="mx-[-0.75rem] hidden text-dirt sm:block" />
         <Waves size="5rem" className="mx-[-0.75rem] hidden text-dirt sm:block" />
-        <Waves size="5rem" className="mx-[-0.75rem] text-dirt" />
+        <Waves size="5rem" className="mx-[-0.75rem] hidden text-dirt sm:block" />
         <Waves size="5rem" className="mx-[-0.75rem] text-dirt" />
         <Waves size="5rem" className="mx-[-0.75rem] text-dirt" />
         <Waves size="5rem" className="mx-[-0.75rem] text-dirt" />
