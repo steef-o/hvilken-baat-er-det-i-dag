@@ -12,7 +12,7 @@ const ShipList = () => {
         <ShipListItem
           key={`${ship.shipName}-${index}`}
           ship={ship}
-          anchoredShip={ship.notes === "Anker"}
+          anchoredShip={ship.notes.includes("Anker")}
         />
       ))}
     </div>
