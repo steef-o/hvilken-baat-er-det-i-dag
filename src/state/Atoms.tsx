@@ -4,23 +4,25 @@ import { atomWithQuery } from "jotai/query";
 import { z } from "zod";
 
 // Zod Validator for Ship Model.
-const ship = z.object({
-  day: z.string(),
-  date: z.string(),
-  anchorTime: z.string(),
-  shipName: z.string(),
-  tonnage: z.number(),
-  length: z.number().nullable(),
-  depth: z.string().nullable(),
-  maxPassengers: z.number().nullable(),
-  company: z.string(),
-  agent: z.string(),
-  fromPort: z.string(),
-  toPort: z.string(),
-  nationality: z.string(),
-  dateOrdered: z.string(),
-  notes: z.string(),
-});
+const ship = z
+  .object({
+    day: z.string(),
+    date: z.string(),
+    anchorTime: z.string(),
+    shipName: z.string(),
+    tonnage: z.number(),
+    length: z.number().nullable(),
+    depth: z.string().nullable(),
+    maxPassengers: z.number().nullable(),
+    company: z.string(),
+    agent: z.string(),
+    fromPort: z.string(),
+    toPort: z.string(),
+    nationality: z.string(),
+    dateOrdered: z.string(),
+    notes: z.string(),
+  })
+  .strict();
 
 // Ship[]
 const list = z.array(ship);
@@ -50,8 +52,8 @@ export const selectedShipList = atom((get) =>
 // Get daily message based on selectedShipLength.
 export const dailyMessage = atom((get) => {
   const shipList = get(selectedShipList);
-  // Undefined: Return empty string.
-  if (!shipList) return "";
+  // Empty list: Return empty string.
+  if (shipList.length === 0) return "";
 
   // Two Ships
   if (shipList.length === 2) {
