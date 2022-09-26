@@ -52,8 +52,6 @@ export const selectedShipList = atom((get) =>
 // Get daily message based on selectedShipLength.
 export const dailyMessage = atom((get) => {
   const shipList = get(selectedShipList);
-  // Empty list: Return empty string.
-  if (shipList.length === 0) return "";
 
   // Two Ships
   if (shipList.length === 2) {
@@ -68,6 +66,6 @@ export const dailyMessage = atom((get) => {
       </h2>
     );
   }
-  // No Ships.
+  // No Ship(s).
   return <h2>Det er {<span className="font-bold">ingen</span>} båter i Eidfjord i dag</h2>;
 });

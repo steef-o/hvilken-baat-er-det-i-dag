@@ -17,7 +17,7 @@ const Illustration = () => {
       )}
       {/* One Ship*/}
       {shipList.length === 1 && <Boat size="8rem" className="mx-auto text-vista-blue" />}
-      {/* No Ships*/}
+      {/* No Ship(s)*/}
       {shipList.length === 0 && (
         <img src={Buoy} alt="Buoy" className="mx-auto mt-32 w-2/12 text-vista-blue sm:w-1/12" />
       )}
