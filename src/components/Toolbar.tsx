@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import { CaretLeft, CaretRight } from "phosphor-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { selectedDay } from "~/state/Atoms";
 
@@ -21,6 +21,28 @@ const Toolbar = () => {
       setSelectedDate(dayjs(e.target.value));
     }
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    switch (e.key) {
+      case "ArrowLeft":
+        subtractDay();
+        break;
+      case "ArrowRight":
+        addDay();
+        break;
+    }
+  };
+
+  useEffect(() => {
+    // @ts-expect-error no overload matches this call
+    window.addEventListener("keydown", handleKeyDown);
+    // Remove event listeners on cleanup
+    return () => {
+      // @ts-expect-error no overload matches this call
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div className="mt-8 flex justify-between text-dirt">
       <button onClick={() => subtractDay()}>
