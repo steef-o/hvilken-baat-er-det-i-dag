@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from "dayjs";
 import { atom } from "jotai";
-import { atomWithQuery } from "jotai/query";
+import { atomWithQuery } from "jotai-tanstack-query";
 import { z } from "zod";
 
 // Zod Validator for Ship Model.
@@ -11,21 +11,22 @@ const ship = z
     anchorTime: z.string(),
     shipName: z.string(),
     tonnage: z.number(),
-    length: z.number().nullable(),
-    depth: z.string().nullable(),
-    maxPassengers: z.number().nullable(),
+    length: z.number(),
+    depth: z.string().or(z.number()),
+    maxPassengers: z.number(),
     company: z.string(),
     agent: z.string(),
     fromPort: z.string(),
     toPort: z.string(),
     nationality: z.string(),
     dateOrdered: z.string(),
-    notes: z.string(),
+    notes: z.string().nullable(),
   })
   .strict();
 
 // Ship[]
 const list = z.array(ship);
+
 
 // Exportable type of Ship for use in application.
 export type Ship = z.infer<typeof ship>;
@@ -35,9 +36,11 @@ export const schedule = atomWithQuery(() => ({
   queryKey: ["schedule"],
   queryFn: async () => {
     const res = await fetch(
-      "https://gist.githubusercontent.com/steef-o/14cd114fef889782996416aff85c1820/raw/0ffefa933aa1e77ef2ee8bd672016dcf57a65782/cruise2022.json",
+      "https://gist.githubusercontent.com/steef-o/441f8d998a773a24c2845c13b3cef38e/raw/21bdd7dae33dc15ae975eaffa5abf8524511e3fc/gistfile1.json",
     ).then((res) => res.json());
+    console.log(res);
     return list.parse(res);
+    // return res;
   },
 }));
 
@@ -45,9 +48,17 @@ export const schedule = atomWithQuery(() => ({
 export const selectedDay = atom<Dayjs>(dayjs());
 
 // Get list of selected ships.
-export const selectedShipList = atom((get) =>
-  get(schedule).filter((ship) => ship.date === get(selectedDay).format("DD.MM.YYYY")),
-);
+export const selectedShipList = atom((get) => {
+  const scheduleResult = get(schedule);
+
+  // Check if the data property exists and is an array before filtering
+  if (scheduleResult.data && Array.isArray(scheduleResult.data)) {
+    return scheduleResult.data.filter((ship: Ship) => ship.date === get(selectedDay).format("DD.MM.YYYY"));
+  }
+
+  // Return an empty array if data is not available
+  return [];
+});
 
 // Get daily message based on selectedShipLength.
 export const dailyMessage = atom((get) => {
