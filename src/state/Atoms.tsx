@@ -20,7 +20,7 @@ const ship = z
     toPort: z.string(),
     nationality: z.string(),
     dateOrdered: z.string(),
-    notes: z.string().nullable(),
+    notes: z.string()
   })
   .strict();
 
@@ -40,7 +40,6 @@ export const schedule = atomWithQuery(() => ({
     ).then((res) => res.json());
     console.log(res);
     return list.parse(res);
-    // return res;
   },
 }));
 
