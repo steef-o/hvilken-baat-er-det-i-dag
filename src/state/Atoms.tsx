@@ -37,7 +37,6 @@ export const schedule = atomWithQuery(() => ({
     const res = await fetch(
       "https://gist.githubusercontent.com/steef-o/441f8d998a773a24c2845c13b3cef38e/raw/21bdd7dae33dc15ae975eaffa5abf8524511e3fc/gistfile1.json",
     ).then((res) => res.json());
-    console.log(res);
     return list.parse(res);
   },
 }));
