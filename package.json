@@ -18,15 +18,15 @@
     "jotai": "^2.9.0",
     "jotai-tanstack-query": "^0.8.5",
     "phosphor-react": "^1.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0-rc-01172397-20240716",
+    "react-dom": "^19.0.0-rc-01172397-20240716",
     "wonka": "^6.3.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
@@ -35,5 +35,9 @@
     "vite": "^5.3.4",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.3"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
   }
 }
