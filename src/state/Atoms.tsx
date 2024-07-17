@@ -20,13 +20,12 @@ const ship = z
     toPort: z.string(),
     nationality: z.string(),
     dateOrdered: z.string(),
-    notes: z.string()
+    notes: z.string(),
   })
   .strict();
 
 // Ship[]
 const list = z.array(ship);
-
 
 // Exportable type of Ship for use in application.
 export type Ship = z.infer<typeof ship>;
@@ -69,12 +68,7 @@ export const dailyMessage = atom((get) => {
   }
   // One Ship.
   if (shipList.length === 1) {
-    return (
-      <h2>
-        I dag er det {<span className="font-bold">{shipList[0].shipName}</span>} som er på besøk i
-        Eidfjord
-      </h2>
-    );
+    return <h2>I dag er det {<span className="font-bold">{shipList[0].shipName}</span>} som er på besøk i Eidfjord</h2>;
   }
   // No Ship(s).
   return <h2>Det er {<span className="font-bold">ingen</span>} båter i Eidfjord i dag</h2>;

@@ -21,16 +21,10 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
             <div className="mt-5 ml-2 md:ml-12" />
           )}
           <div className="py-4 px-4 md:px-2">
-            <h2
-              className={`text-2xl font-bold uppercase ${
-                anchoredShip ? "text-lollipop" : "text-vista-blue"
-              }`}
-            >
+            <h2 className={`text-2xl font-bold uppercase ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>
               {ship.shipName}
             </h2>
-            <h3 className={`font-bold ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>
-              {ship.date}
-            </h3>
+            <h3 className={`font-bold ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>{ship.date}</h3>
           </div>
         </div>
         <div className="ml-2 grid grid-cols-2 md:ml-10">

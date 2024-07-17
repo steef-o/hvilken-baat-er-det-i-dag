@@ -9,11 +9,7 @@ const ShipList = () => {
   return (
     <div className="relative mx-auto max-w-[768px]">
       {shipList.map((ship, index) => (
-        <ShipListItem
-          key={`${ship.shipName}-${index}`}
-          ship={ship}
-          anchoredShip={ship.notes.includes("Anker")}
-        />
+        <ShipListItem key={`${ship.shipName}-${index}`} ship={ship} anchoredShip={ship.notes.includes("Anker")} />
       ))}
     </div>
   );
