@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import { CaretLeft, CaretRight } from "phosphor-react";
-import React, { useEffect } from "react";
+import type React from "react";
+import { useEffect } from "react";
 
 import { selectedDay } from "~/state/Atoms";
 
@@ -33,6 +34,7 @@ const Toolbar = () => {
     }
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     // @ts-expect-error no overload matches this call
     window.addEventListener("keydown", handleKeyDown);
@@ -45,7 +47,7 @@ const Toolbar = () => {
 
   return (
     <div className="mt-8 flex justify-between text-dirt">
-      <button onClick={() => subtractDay()}>
+      <button type="button" onClick={() => subtractDay()}>
         <CaretLeft size="2rem" />
       </button>
       <input
@@ -55,7 +57,7 @@ const Toolbar = () => {
         value={selectedDate.format("YYYY-MM-DD")}
         className="datePicker bg-base text-2xl"
       />
-      <button onClick={() => addDay()}>
+      <button type="button" onClick={() => addDay()}>
         <CaretRight size="2rem" />
       </button>
     </div>

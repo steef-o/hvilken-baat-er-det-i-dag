@@ -2,7 +2,8 @@ import { Anchor } from "phosphor-react";
 
 import Barcode from "~/assets/img/barcode.svg";
 import Field from "~/components/shipList/Field";
-import { Ship } from "~/state/Atoms";
+
+import type { Ship } from "~/state/Atoms";
 
 interface ShipListItemProps {
   ship: Ship;
@@ -20,8 +21,8 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
             // Empty div - The same size as the Anchor icon. To fill the space.
             <div className="mt-5 ml-2 md:ml-12" />
           )}
-          <div className="py-4 px-4 md:px-2">
-            <h2 className={`text-2xl font-bold uppercase ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>
+          <div className="px-4 py-4 md:px-2">
+            <h2 className={`font-bold text-2xl uppercase ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>
               {ship.shipName}
             </h2>
             <h3 className={`font-bold ${anchoredShip ? "text-lollipop" : "text-vista-blue"}`}>{ship.date}</h3>

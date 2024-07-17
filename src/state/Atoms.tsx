@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from "dayjs";
+import dayjs, { type Dayjs } from "dayjs";
 import { atom } from "jotai";
 import { atomWithQuery } from "jotai-tanstack-query";
 import { z } from "zod";
