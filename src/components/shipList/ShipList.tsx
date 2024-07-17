@@ -1,9 +1,9 @@
 import { useAtom } from "jotai";
 
-import ShipListItem from "~/components/shipList/ShipListItem";
+import { ShipListItem } from "~/components/shipList/ShipListItem";
 import { selectedShipList } from "~/state/Atoms";
 
-const ShipList = () => {
+export const ShipList = () => {
   const [shipList] = useAtom(selectedShipList);
 
   return (
@@ -14,5 +14,3 @@ const ShipList = () => {
     </div>
   );
 };
-
-export default ShipList;

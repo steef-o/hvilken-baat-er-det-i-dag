@@ -14,7 +14,19 @@
     "rules": {
       "recommended": true,
       "nursery": {
-        "useSortedClasses": "warn"
+        "useSortedClasses": "warn",
+        "noDuplicateJsonKeys": "error"
+      },
+      "style": {
+        "noDefaultExport": "error"
+      },
+      "suspicious": {
+        "noConsoleLog": "error",
+        "useAwait": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "error",
+        "useHookAtTopLevel": "error"
       }
     }
   },

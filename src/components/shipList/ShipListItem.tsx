@@ -1,7 +1,7 @@
 import { Anchor } from "phosphor-react";
 
 import Barcode from "~/assets/img/barcode.svg";
-import Field from "~/components/shipList/Field";
+import { Field } from "~/components/shipList/Field";
 
 import type { Ship } from "~/state/Atoms";
 
@@ -10,7 +10,7 @@ interface ShipListItemProps {
   anchoredShip?: boolean;
 }
 
-const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
+export const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
   <div className="relative">
     <div className="shipListItem my-4 flex bg-dirt pb-4 md:my-10">
       <div className="w-full pt-1 md:w-9/12">
@@ -49,4 +49,3 @@ const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
     </div>
   </div>
 );
-export default ShipListItem;

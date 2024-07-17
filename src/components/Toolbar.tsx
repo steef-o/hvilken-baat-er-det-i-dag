@@ -1,67 +1,67 @@
 import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import { CaretLeft, CaretRight } from "phosphor-react";
-import type React from "react";
-import { useEffect } from "react";
+import type { ChangeEvent } from "react";
+import { useCallback, useEffect } from "react";
 
 import { selectedDay } from "~/state/Atoms";
 
-const Toolbar = () => {
+export const Toolbar = () => {
   const [selectedDate, setSelectedDate] = useAtom(selectedDay);
 
-  const addDay = () => {
+  const addDay = useCallback(() => {
     setSelectedDate((prevState) => prevState.add(1, "day"));
-  };
+  }, [setSelectedDate]);
 
-  const subtractDay = () => {
+  const subtractDay = useCallback(() => {
     setSelectedDate((prevState) => prevState.subtract(1, "day"));
-  };
+  }, [setSelectedDate]);
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value) {
-      setSelectedDate(dayjs(e.target.value));
-    }
-  };
+  const handleDateChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.target.value) {
+        setSelectedDate(dayjs(e.target.value));
+      }
+    },
+    [setSelectedDate],
+  );
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    switch (e.key) {
-      case "ArrowLeft":
-        subtractDay();
-        break;
-      case "ArrowRight":
-        addDay();
-        break;
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "ArrowLeft":
+          subtractDay();
+          break;
+        case "ArrowRight":
+          addDay();
+          break;
+      }
+    },
+    [addDay, subtractDay],
+  );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    // @ts-expect-error no overload matches this call
     window.addEventListener("keydown", handleKeyDown);
-    // Remove event listeners on cleanup
     return () => {
-      // @ts-expect-error no overload matches this call
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <div className="mt-8 flex justify-between text-dirt">
-      <button type="button" onClick={() => subtractDay()}>
+      <button type="button" onClick={subtractDay}>
         <CaretLeft size="2rem" />
       </button>
       <input
         type="date"
         id="calendar"
-        onChange={(e) => handleDateChange(e)}
+        onChange={handleDateChange}
         value={selectedDate.format("YYYY-MM-DD")}
         className="datePicker bg-base text-2xl"
       />
-      <button type="button" onClick={() => addDay()}>
+      <button type="button" onClick={addDay}>
         <CaretRight size="2rem" />
       </button>
     </div>
   );
 };
-
-export default Toolbar;

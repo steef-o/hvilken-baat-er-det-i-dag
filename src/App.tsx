@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 
-import DailyMessage from "~/components/DailyMessage";
-import Illustration from "~/components/Illustration";
-import Toolbar from "~/components/Toolbar";
-import ShipList from "~/components/shipList/ShipList";
+import { DailyMessage } from "~/components/DailyMessage";
+import { Illustration } from "~/components/Illustration";
+import { Toolbar } from "~/components/Toolbar";
+import { ShipList } from "~/components/shipList/ShipList";
 
-const App = () => (
+export const App = () => (
   <Suspense fallback={<div className="bg-base">Loading...</div>}>
     <div className="min-h-screen bg-base pb-20">
       <header className="h-16 bg-midnight-blue text-center">
@@ -20,5 +20,3 @@ const App = () => (
     </div>
   </Suspense>
 );
-
-export default App;
