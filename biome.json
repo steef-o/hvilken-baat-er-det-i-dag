@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "organizeImports": {
     "enabled": true
   },
@@ -7,32 +7,65 @@
     "enabled": true,
     "indentWidth": 2,
     "lineWidth": 120,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "nursery": {
-        "useSortedClasses": "warn",
-        "noDuplicateJsonKeys": "error"
-      },
       "style": {
-        "noDefaultExport": "error"
+        "noDefaultExport": "error",
+        "noYodaExpression": "error",
+        "noNegationElse": "error",
+        "useExplicitLengthCheck": "error",
+        "noImplicitBoolean": "error",
+        "useConsistentArrayType": {
+          "options": {
+            "syntax": "shorthand"
+          },
+          "level": "error"
+        }
       },
       "suspicious": {
-        "noConsoleLog": "error",
-        "useAwait": "warn"
+        "noConsole": {
+          "options": {
+            "allow": ["error", "time", "timeEnd"]
+          },
+          "level": "warn"
+        },
+        "useAwait": "warn",
+        "noArrayIndexKey": "off"
       },
       "correctness": {
         "noUnusedImports": "error",
+        "noUnusedVariables": "error",
         "useHookAtTopLevel": "error"
+      },
+      "nursery": {
+        "noNestedTernary": "error",
+        "noEnum": "error"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "off",
+        "noForEach": "off"
+      },
+      "performance": {
+        "noBarrelFile": "error",
+        "noReExportAll": "error"
       }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "single",
+      "trailingCommas": "es5"
     }
   },
   "overrides": [
     {
-      "include": ["vite.config.ts", "vitest.config.ts", "postcss.config.js", "tailwind.config.js"],
+      "include": ["vite.config.ts", "vitest.config.ts", "tailwind.config.js", "postcss.config.js"],
       "linter": {
         "rules": {
           "style": {
@@ -40,11 +73,20 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/**/*.css"],
+      "javascript": {
+        "formatter": {
+          "semicolons": "always"
+        }
+      }
     }
   ],
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
   }
 }

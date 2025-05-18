@@ -1,7 +1,7 @@
 interface FieldProps {
-  label: string;
-  value: string;
-  styles?: string;
+  label: string
+  value: string
+  styles?: string
 }
 
 export const Field = ({ label, value, styles }: FieldProps) => (
@@ -9,4 +9,4 @@ export const Field = ({ label, value, styles }: FieldProps) => (
     <p className="font-mono uppercase">{label}</p>
     <h3 className="font-bold text-lg">{value}</h3>
   </div>
-);
+)

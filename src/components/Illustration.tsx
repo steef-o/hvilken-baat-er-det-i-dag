@@ -1,11 +1,11 @@
-import { useAtom } from "jotai";
-import { Boat, Waves } from "phosphor-react";
+import { useAtom } from 'jotai'
+import { Boat, Waves } from 'phosphor-react'
 
-import Buoy from "~/assets/img/buoy.svg";
-import { selectedShipList } from "~/state/Atoms";
+import Buoy from '~/assets/img/buoy.svg'
+import { selectedShipList } from '~/state/Atoms'
 
 export const Illustration = () => {
-  const [shipList] = useAtom(selectedShipList);
+  const [shipList] = useAtom(selectedShipList)
   return (
     <div className="mt-14 flex h-full min-h-[20rem]">
       <div className="w-full self-end">
@@ -40,5 +40,5 @@ export const Illustration = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

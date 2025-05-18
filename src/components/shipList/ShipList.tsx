@@ -1,10 +1,10 @@
-import { useAtom } from "jotai";
+import { useAtom } from 'jotai'
 
-import { ShipListItem } from "~/components/shipList/ShipListItem";
-import { selectedShipList } from "~/state/Atoms";
+import { ShipListItem } from '~/components/shipList/ShipListItem'
+import { selectedShipList } from '~/state/Atoms'
 
 export const ShipList = () => {
-  const [shipList] = useAtom(selectedShipList);
+  const [shipList] = useAtom(selectedShipList)
 
   return (
     <div className="relative mx-auto max-w-[768px]">
@@ -12,9 +12,9 @@ export const ShipList = () => {
         <ShipListItem
           key={`${ship.shipName}-${index}`}
           ship={ship}
-          anchoredShip={ship.notes.toUpperCase().includes("ANKER")}
+          anchoredShip={ship.notes.toUpperCase().includes('ANKER')}
         />
       ))}
     </div>
-  );
-};
+  )
+}
