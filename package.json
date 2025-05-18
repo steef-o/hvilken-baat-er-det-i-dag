@@ -13,27 +13,27 @@
     "test": "vitest src"
   },
   "dependencies": {
-    "@tanstack/query-core": "^5.51.3",
-    "dayjs": "^1.11.11",
-    "jotai": "^2.9.0",
-    "jotai-tanstack-query": "^0.8.5",
+    "@tanstack/query-core": "^5.76.0",
+    "dayjs": "^1.11.13",
+    "jotai": "^2.12.4",
+    "jotai-tanstack-query": "^0.9.0",
     "phosphor-react": "^1.4.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "wonka": "^6.3.4",
-    "zod": "^3.23.8"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "wonka": "^6.3.5",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@biomejs/biome": "^1.9.4",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.4",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^2.0.3"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.3"
   }
 }
