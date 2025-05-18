@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
 
 @tailwind base;
@@ -7,27 +7,4 @@
 
 .datePicker::-webkit-calendar-picker-indicator {
   filter: invert(1);
-}
-
-/*Side ticket hole top*/
-.shipListItem:before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 65%;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  @apply bg-base;
-}
-/*Side ticket hole bottom*/
-.shipListItem:after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 65%;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  @apply bg-base;
 }

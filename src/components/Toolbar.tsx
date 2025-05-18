@@ -48,7 +48,7 @@ export const Toolbar = () => {
   }, [handleKeyDown])
 
   return (
-    <div className="mt-8 flex justify-between text-dirt">
+    <div className="mt-8 flex justify-center w-full text-midnight-blue">
       <button type="button" onClick={subtractDay}>
         <CaretLeft size="2rem" />
       </button>
@@ -57,7 +57,7 @@ export const Toolbar = () => {
         id="calendar"
         onChange={handleDateChange}
         value={selectedDate.format('YYYY-MM-DD')}
-        className="datePicker bg-base text-2xl"
+        className="bg-transparent text-xl font-medium px-9 max-w-[14rem] cursor-pointer"
       />
       <button type="button" onClick={addDay}>
         <CaretRight size="2rem" />

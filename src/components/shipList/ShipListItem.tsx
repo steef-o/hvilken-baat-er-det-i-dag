@@ -12,7 +12,12 @@ interface ShipListItemProps {
 
 export const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) => (
   <div className="relative">
-    <div className="shipListItem my-4 flex bg-dirt pb-4 md:my-10">
+    <div className="my-4 flex flex-col md:flex-row bg-white/10 backdrop-blur-md border border-white/20 shadow-xl rounded-[20px] p-6 md:my-10 max-w-full overflow-hidden isolate">
+      {/* Top Hole */}
+      <span className="absolute top-[-20px] left-[65%] w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 z-10" />
+
+      {/* Bottom Hole */}
+      <span className="absolute bottom-[-20px] left-[65%] w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 z-10" />
       <div className="w-full pt-1 md:w-9/12">
         <div className="flex">
           {anchoredShip ? (
@@ -22,10 +27,10 @@ export const ShipListItem = ({ ship, anchoredShip = false }: ShipListItemProps) 
             <div className="mt-5 ml-2 md:ml-12" />
           )}
           <div className="px-4 py-4 md:px-2">
-            <h2 className={`font-bold text-2xl uppercase ${anchoredShip ? 'text-lollipop' : 'text-vista-blue'}`}>
+            <h2 className={`font-bold text-2xl uppercase ${anchoredShip ? 'text-lollipop' : 'text-ocean-blue'}`}>
               {ship.shipName}
             </h2>
-            <h3 className={`font-bold ${anchoredShip ? 'text-lollipop' : 'text-vista-blue'}`}>{ship.date}</h3>
+            <h3 className={`font-bold ${anchoredShip ? 'text-lollipop' : 'text-ocean-blue'}`}>{ship.date}</h3>
           </div>
         </div>
         <div className="ml-2 grid grid-cols-2 md:ml-10">
